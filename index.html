@@ -38,13 +38,13 @@
                   return;
                 }
 
-                // Force material to be visible and properly rendered
+                // Force material to be visible and properly rendered.
                 node.material.needsUpdate = true;
                 node.material.side = THREE.DoubleSide; // Render both sides
                 node.material.transparent = true;
                 node.material.alphaTest = 0.5;
 
-                // If material has maps, ensure they're loaded correctly
+                // If material has maps, ensure they're loaded correctly.
                 if (node.material.map) {
                   console.log("Texture found, fixing path...");
 
@@ -54,7 +54,7 @@
                     : null;
                   console.log("Current texture path:", currentPath);
 
-                  // If texture path doesn't include the textures folder, fix it
+                  // If texture path doesn't include the textures folder, fix it.
                   if (currentPath && !currentPath.includes("/textures/")) {
                     
                     // Extract the filename from the path
@@ -66,7 +66,7 @@
                       "textures/" + filename
                     );
 
-                    // Apply the new texture
+                    // Apply the new texture.
                     newTexture.anisotropy = 16; // Better quality
                     newTexture.encoding = THREE.sRGBEncoding; // Correct color space
                     node.material.map = newTexture;
